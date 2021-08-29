@@ -9,7 +9,7 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home,
-    redirect: "/login",
+    redirect: "/index",
   },
   {
     path: "/about",
@@ -17,9 +17,36 @@ const routes = [
     component: () => import("../views/About.vue"),
   },
   {
-    path: "/login",
-    name: "login",
-    component: () => import("../views/login.vue"),
+    path: "/index",
+    name: "index",
+    component: () => import("../views/index.vue"),
+    children: [
+      {
+        path: "/sy",
+        name: "sy",
+        component: () => import("../views/sy.vue"),
+      },
+      {
+        path: "/kc",
+        name: "kc",
+        component: () => import("../views/kc.vue"),
+      },
+      {
+        path: "/zx",
+        name: "zx",
+        component: () => import("../views/zx.vue"),
+      },
+      {
+        path: "/ts",
+        name: "ts",
+        component: () => import("../views/ts.vue"),
+      },
+      {
+        path: "/my",
+        name: "my",
+        component: () => import("../views/my.vue"),
+      },
+    ],
   },
 ];
 
