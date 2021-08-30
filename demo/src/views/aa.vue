@@ -4,7 +4,8 @@
       <div class="login">
         <img src="	http://120.53.31.103:86/img/avatar.71c6d2b4.png" alt="" />
         <p>
-          <span @click="tui">退出登录</span>
+          <span @click="login">登录/</span>
+          <span>注册</span>
         </p>
       </div>
       <img src="http://120.53.31.103:86/img/user_bg.7d633ee2.png" alt="" />
@@ -34,7 +35,6 @@
         </div>
       </div>
     </div>
-    <div class="foot"></div>
   </div>
 </template>
 
@@ -122,7 +122,7 @@ export default {
   watch: {},
 
   methods: {
-    tui() {
+    login() {
       this.$router.push("/login");
     },
   },
@@ -149,6 +149,10 @@ export default {
     height: 200px;
     background: white;
     position: relative;
+    img {
+      width: 100%;
+      height: 100%;
+    }
     .login {
       width: 70px;
       height: 70px;
@@ -163,12 +167,11 @@ export default {
         height: 25px;
         margin-top: 10px;
         text-align: center;
-        color: white;
+        span {
+          color: white;
+          font-size: 16px;
+        }
       }
-    }
-    img {
-      width: 100%;
-      height: 100%;
     }
   }
   .nav {
@@ -181,14 +184,15 @@ export default {
     div {
       width: 100px;
       height: 60px;
-      color: red;
-      &:hover {
-        color: #5bb8f5;
-      }
+
       p:nth-child(1) {
         font-size: 20px;
         text-align: center;
         margin-top: 8px;
+        color: red;
+        &:hover {
+          color: #5bb8f5;
+        }
       }
       p:nth-child(2) {
         font-size: 16px;
@@ -217,13 +221,9 @@ export default {
         height: 40px;
         line-height: 40px;
         font-size: 25px;
-        color: rgb(128, 128, 128);
+        color: gray;
       }
     }
-  }
-  .foot {
-    width: 100%;
-    height: 100px;
   }
 }
 </style>

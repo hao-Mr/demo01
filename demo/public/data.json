@@ -1,0 +1,72 @@
+{
+    list:{
+         [
+                     {
+                        name: "我的作业",
+                        icon: "description",
+                        url: "Homework"
+                      },
+                      {
+                        name: "我的社区",
+                        icon:"friends-o",
+                        url: "MyCommunity"
+                      }
+                    ],
+                    [
+                      {
+                        name: "课程订单",
+                        icon: "newspaper-o",
+                        url: "Order"
+                      },
+                      {
+                        name: "图书订单",
+                        icon: "idcard",
+                        url: "Order"
+                      }
+                    ],
+                    [
+                      {
+                        name: "优惠券",
+                        icon: "coupon-o",
+                        url: "Coupon"
+                      },
+                      {
+                        name: "学习卡",
+                        icon: "debit-pay",
+                        url: "Card"
+                      },
+                      {
+                        name: "分销中心",
+                        icon:"peer-pay",
+                        url: "Distribute"
+                      }
+                    ],
+                    [
+                      {
+                        name: "消息中心",
+                        icon: "comment-o",
+                        url: "Message"
+                      },
+                      {
+                        name: "地址管理",
+                        icon: "location-o",
+                        url: "Address"
+                      },
+                      {
+                        name: "关于我们",
+                        icon:"friends-o",
+                        url: "About"
+                      },
+                      {
+                        name: "意见反馈",
+                        icon: "records",
+                        url: "Feedback"
+                      },
+                      {
+                        name: "设置",
+                        icon: "setting-o",
+                        url: "Options"
+                      }
+                    ]
+    }
+}

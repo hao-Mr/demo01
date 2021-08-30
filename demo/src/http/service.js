@@ -1,49 +1,39 @@
 import axios from "axios";
-
-import { base_url } from "@/config";
 import { Toast } from "vant";
-//基础配置
-let service = axios.create({
-  baseURL: base_url, // url = base api url + request url
-  //withCredentials: true, // 是否携带cookies send cookies when cross-domain requests
-  timeout: 5000, //请求超时
+import { baseUrl } from "@/config";
+import store from "../store";
+
+const service = axios.create({
+  baseURL: baseUrl, // url = base api url + request url
+  //   withCredentials: true, // send cookies when cross-domain requests
+  timeout: 5000, // request timeout
 });
-
 let loading;
-
-//请求拦截
+//请求拦截器
 service.interceptors.request.use(
   (config) => {
-    //1.loading动画开启
-    loading = Toast.loading({
-      duration: 10000,
-      message: "加载中...",
-      forbidClick: true,
-    });
-    //2.token设置(把token添加到请求头中)
-    config.headers["Authorization"] = sessionStorage.getItem("token");
+    loading = Toast.loading({ message: "加载中...", forbidClick: true });
+    config.headers["Authorization"] = store.state.token;
     return config;
   },
   (error) => {
-    // do something with request error
-    console.log(error); // for debug
+    // do something with request error
+    console.log(error); // for debug
     return Promise.reject(error);
   }
 );
-
-//响应拦截
-
+//响应拦截器
 service.interceptors.response.use(
   (res) => {
-    //1.关闭loading
+    //关闭loading
     loading.clear();
     return Promise.resolve(res);
   },
   (error) => {
-    Toast.clear();
-    console.log("err" + error); // for debug
+    loading.clear();
+    console.log("err" + error);
     return Promise.reject(error);
   }
 );
-
+// module.export= service;
 export default service;

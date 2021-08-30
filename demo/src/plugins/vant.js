@@ -9,6 +9,7 @@ import {
   SwipeItem,
   Toast,
   Search,
+  Icon,
 } from "vant";
 Vue.use(Button);
 Vue.use(Cell);
@@ -19,3 +20,4 @@ Vue.use(Toast);
 Vue.use(Tabbar);
 Vue.use(TabbarItem);
 Vue.use(Search);
+Vue.use(Icon);

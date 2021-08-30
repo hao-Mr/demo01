@@ -19,7 +19,12 @@
         </van-swipe-item>
       </van-swipe>
     </div>
-    <div class="con" v-for="(item, index) in nav" :key="index">
+    <div
+      class="con"
+      v-for="(item, index) in nav"
+      :key="index"
+      v-if="index !== 1"
+    >
       <div class="con1">
         <p>
           <span>{{ item.channel_info.name }}</span>
@@ -34,6 +39,27 @@
         </div>
       </div>
     </div>
+    <div
+      class="con"
+      v-for="(item, index) in nav"
+      :key="index"
+      v-if="index == 1"
+    >
+      <div class="con1">
+        <p>
+          <span>{{ item.channel_info.name }}</span>
+          <span>更多</span>
+        </p>
+        <div class="con2" v-for="(it, key) in item.list" :key="key">
+          <img id="img" :src="it.cover_img" alt="" />
+          <div>
+            <p>{{ it.title }}</p>
+            <p>{{ it.sales_num }}已报名</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"></div>
   </div>
 </template>
 
@@ -58,7 +84,7 @@ export default {
 
   async created() {
     var res = await this.$axios.get("http://120.53.31.103:84/api/app/banner");
-
+    console.log(res);
     var res1 = await this.$axios.get(
       "http://120.53.31.103:84/api/app/recommend/appIndex"
     );
@@ -91,7 +117,6 @@ export default {
 .con {
   width: 100%;
   background: #ededed;
-  margin-top: 10px;
   .con1 {
     width: 100%;
     padding: 0 10px;
@@ -116,7 +141,7 @@ export default {
         width: 50px;
         height: 50px;
         border-radius: 50%;
-        background: red;
+        border: 1px solid #dedede;
       }
       div {
         margin-left: 10px;
@@ -132,5 +157,15 @@ export default {
       }
     }
   }
+}
+#img {
+  width: 100px;
+  height: 60px;
+  border-radius: 0;
+  border: none;
+}
+.foot {
+  width: 100%;
+  height: 100px;
 }
 </style>
