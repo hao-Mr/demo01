@@ -10,6 +10,7 @@ import {
   Toast,
   Search,
   Icon,
+  Calendar,
 } from "vant";
 Vue.use(Button);
 Vue.use(Cell);
@@ -21,3 +22,4 @@ Vue.use(Tabbar);
 Vue.use(TabbarItem);
 Vue.use(Search);
 Vue.use(Icon);
+Vue.use(Calendar);

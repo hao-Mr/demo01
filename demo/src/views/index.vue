@@ -17,7 +17,7 @@ export default {
   components: {},
   data() {
     return {
-      active: 0,
+      active: "",
     };
   },
 

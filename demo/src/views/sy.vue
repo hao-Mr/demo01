@@ -30,7 +30,12 @@
           <span>{{ item.channel_info.name }}</span>
           <span>更多</span>
         </p>
-        <div class="con2" v-for="(it, key) in item.list" :key="key">
+        <div
+          class="con2"
+          v-for="(it, key) in item.list"
+          :key="key"
+          @click="goxq"
+        >
           <img :src="it.teacher_avatar" alt="" />
           <div>
             <p>{{ it.teacher_name }}</p>

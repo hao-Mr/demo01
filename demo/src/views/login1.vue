@@ -9,14 +9,13 @@
     <div class="con">
       <div class="user">
         <input type="text" placeholder="请输入手机号" v-model="mobile" />
-        <button @click="addsms">{{ text }}</button>
       </div>
       <div class="yz">
-        <input type="text" placeholder="请输入验证码" v-model="sms" />
+        <input type="password" placeholder="请输入密码" v-model="password" />
       </div>
       <div class="others">
         <span>*未注册的手机号将自动注册</span
-        ><span @click="mi">使用密码登录</span>
+        ><span @click="yan">使用验证码登录</span>
       </div>
       <div class="dl">
         <button @click="add">登录</button>
@@ -39,8 +38,7 @@ export default {
   data() {
     return {
       mobile: "",
-      sms: "",
-      text: "获取验证码",
+      password: "",
     };
   },
 
@@ -49,34 +47,26 @@ export default {
   watch: {},
 
   methods: {
-    mi() {
-      this.$router.push("/login1");
+    yan() {
+      this.$router.push("/login");
     },
-    async addsms() {
-      var res = await smsCode({
-        mobile: this.mobile,
-        sms_type: "login",
-      });
+    // async addsms() {
+    //   var res1 = /^1[3-9]\d{9}$/;
+    //   if (!res1.test(this.mobile)) {
+    //     this.$toast.fail("手机号格式不正确，请重新输入");
+    //     return false;
+    //   }
+    // },
+    async add() {
       var res1 = /^1[3-9]\d{9}$/;
       if (!res1.test(this.mobile)) {
         this.$toast.fail("手机号格式不正确，请重新输入");
         return false;
       }
-      var time = 60;
-      var timer = setInterval(() => {
-        this.text = `${time}`;
-        if (time <= 0) {
-          clearInterval(time);
-          this.text = "获取验证码";
-        }
-        time--;
-      }, 1000);
-    },
-    async add() {
       var res = await login({
         mobile: this.mobile,
-        sms_code: this.sms,
-        type: 2,
+        password: this.password,
+        type: 1,
         client: "1",
       });
       console.log(res);

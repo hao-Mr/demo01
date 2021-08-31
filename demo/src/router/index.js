@@ -12,6 +12,11 @@ const routes = [
     redirect: "/aa",
   },
   {
+    path: "/qiandao",
+    name: "qiandao",
+    component: () => import("../views/qiandao.vue"),
+  },
+  {
     path: "/about",
     name: "About",
     component: () => import("../views/About.vue"),
@@ -20,6 +25,16 @@ const routes = [
     path: "/aa",
     name: "aa",
     component: () => import("../views/aa.vue"),
+  },
+  {
+    path: "/xiangqing",
+    name: "xiangqing",
+    component: () => import("../views/xiangqing.vue"),
+  },
+  {
+    path: "/login1",
+    name: "login1",
+    component: () => import("../views/login1.vue"),
   },
   {
     path: "/login",

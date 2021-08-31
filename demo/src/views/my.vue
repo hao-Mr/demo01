@@ -7,6 +7,9 @@
           <span @click="tui">退出登录</span>
         </p>
       </div>
+      <div class="date">
+        <p @click="qd">签到</p>
+      </div>
       <img src="http://120.53.31.103:86/img/user_bg.7d633ee2.png" alt="" />
     </div>
     <div class="nav">
@@ -125,6 +128,9 @@ export default {
     tui() {
       this.$router.push("/login");
     },
+    qd() {
+      this.$router.push("/qiandao");
+    },
   },
 
   created() {},
@@ -165,6 +171,18 @@ export default {
         text-align: center;
         color: white;
       }
+    }
+    .date {
+      width: 70px;
+      height: 25px;
+      border-radius: 30px;
+      background: rgb(0, 153, 255);
+      position: absolute;
+      top: 50px;
+      right: -10px;
+      text-align: center;
+      line-height: 25px;
+      color: white;
     }
     img {
       width: 100%;
