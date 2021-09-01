@@ -11,6 +11,8 @@ import {
   Search,
   Icon,
   Calendar,
+  Tab,
+  Tabs,
 } from "vant";
 Vue.use(Button);
 Vue.use(Cell);
@@ -23,3 +25,5 @@ Vue.use(TabbarItem);
 Vue.use(Search);
 Vue.use(Icon);
 Vue.use(Calendar);
+Vue.use(Tab);
+Vue.use(Tabs);

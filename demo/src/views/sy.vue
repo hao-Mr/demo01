@@ -32,9 +32,9 @@
         </p>
         <div
           class="con2"
-          v-for="(it, key) in item.list"
-          :key="key"
-          @click="goxq"
+          v-for="it in item.list"
+          :key="it.teacher_id"
+          @click="goteacher(it.teacher_id)"
         >
           <img :src="it.teacher_avatar" alt="" />
           <div>
@@ -85,11 +85,16 @@ export default {
 
   watch: {},
 
-  methods: {},
+  methods: {
+    //点击跳详情
+    goteacher(cid) {
+      this.$router.push("/teacher?id=" + cid);
+      console.log(cid);
+    },
+  },
 
   async created() {
     var res = await this.$axios.get("http://120.53.31.103:84/api/app/banner");
-    console.log(res);
     var res1 = await this.$axios.get(
       "http://120.53.31.103:84/api/app/recommend/appIndex"
     );

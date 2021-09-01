@@ -15,10 +15,15 @@
     <div class="rl">
       <div class="">
         <van-calendar
-          :row-height="32"
+          :formatter="formatter"
+          :poppable="false"
+          :show-mark="false"
+          :row-height="50"
           :value="date"
           :show-title="false"
           :show-confirm="false"
+          v-model="show"
+          @confirm="onConfirm"
         />
       </div>
     </div>
@@ -77,12 +82,14 @@
 </template>
 
 <script>
+import { signin } from "@/http/api";
 export default {
   prop: {},
   components: {},
   data() {
     return {
       date: "",
+      show: true,
     };
   },
 
@@ -90,7 +97,40 @@ export default {
 
   watch: {},
 
-  methods: {},
+  methods: {
+    formatter(day) {
+      const month = day.date.getMonth() + 1;
+      const date = day.date.getDate();
+      const tady = new Date();
+      const month_new = tady.getMonth() + 1;
+      const date_new = tady.getDate();
+
+      if (month == month_new && date == date_new) {
+        day.bottomInfo = "+1";
+        day.text = "√";
+      }
+      //   if (month === 5) {
+      //     if (date === 1) {
+      //       day.topInfo = "劳动节";
+      //     } else if (date === 4) {
+      //       day.topInfo = "青年节";
+      //     } else if (date === 11) {
+      //       day.text = "今天";
+      //     }
+      //   }
+
+      //   if (day.type === "start") {
+      //     day.bottomInfo = "入住";
+      //   } else if (day.type === "end") {
+      //   day.bottomInfo = "离店";
+      //   }
+
+      return day;
+    },
+    onConfirm(date) {
+      this.date = this.formatDate(date);
+    },
+  },
 
   created() {},
 
@@ -206,5 +246,11 @@ export default {
       }
     }
   }
+}
+.deep.van-calendar__bottom-info {
+  bottom: -4px !important;
+}
+.van-calendar__selected-day {
+  border-radius: 50%;
 }
 </style>

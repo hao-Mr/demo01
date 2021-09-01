@@ -17,6 +17,11 @@ const routes = [
     component: () => import("../views/qiandao.vue"),
   },
   {
+    path: "/teacher",
+    name: "teacher",
+    component: () => import("../views/teacher.vue"),
+  },
+  {
     path: "/about",
     name: "About",
     component: () => import("../views/About.vue"),

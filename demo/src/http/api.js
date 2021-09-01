@@ -18,3 +18,6 @@ export function appIndex(arg) {
 export function password(arg) {
   return service({ url: require.password, data: arg, method: "post" });
 }
+export function signin(arg) {
+  return service({ url: require.signin, data: arg, method: "get" });
+}
