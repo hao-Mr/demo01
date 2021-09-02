@@ -5,4 +5,5 @@ module.exports = {
   appIndex: "/recommend/appIndex",
   password: "/password",
   signin: "/user/integral/signRecord",
+  teacher: "/teacher/",
 };

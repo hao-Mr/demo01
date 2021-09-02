@@ -12,6 +12,11 @@ const routes = [
     redirect: "/aa",
   },
   {
+    path: "/kcxq",
+    name: "kcxq",
+    component: () => import("../views/kcxq.vue"),
+  },
+  {
     path: "/qiandao",
     name: "qiandao",
     component: () => import("../views/qiandao.vue"),

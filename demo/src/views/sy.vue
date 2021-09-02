@@ -55,7 +55,12 @@
           <span>{{ item.channel_info.name }}</span>
           <span>更多</span>
         </p>
-        <div class="con2" v-for="(it, key) in item.list" :key="key">
+        <div
+          class="con2"
+          v-for="(it, key) in item.list"
+          :key="key"
+          @click="goxq"
+        >
           <img id="img" :src="it.cover_img" alt="" />
           <div>
             <p>{{ it.title }}</p>
@@ -90,6 +95,9 @@ export default {
     goteacher(cid) {
       this.$router.push("/teacher?id=" + cid);
       console.log(cid);
+    },
+    goxq() {
+      this.$router.push("/xiangqing");
     },
   },
 

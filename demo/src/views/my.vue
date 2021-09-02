@@ -2,7 +2,7 @@
   <div class="my">
     <div class="top">
       <div class="login">
-        <img src="	http://120.53.31.103:86/img/avatar.71c6d2b4.png" alt="" />
+        <img src="	http://120.53.31.103:84/uploads/avatar.jpg" alt="" />
         <p>
           <span @click="tui">退出登录</span>
         </p>
@@ -159,11 +159,15 @@ export default {
       width: 70px;
       height: 70px;
       border-radius: 50%;
-      border: 1px solid #ededed;
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+      }
       p {
         width: 70px;
         height: 25px;
@@ -173,13 +177,13 @@ export default {
       }
     }
     .date {
-      width: 70px;
+      width: 50px;
       height: 25px;
       border-radius: 30px;
-      background: rgb(0, 153, 255);
+      background: goldenrod;
       position: absolute;
       top: 50px;
-      right: -10px;
+      right: 0;
       text-align: center;
       line-height: 25px;
       color: white;

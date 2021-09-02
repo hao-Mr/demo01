@@ -34,6 +34,7 @@
         </div>
       </van-tab>
     </van-tabs>
+    <div></div>
   </div>
 </template>
 
@@ -48,6 +49,7 @@ export default {
       aa: [],
       nav: [],
       active: "",
+      _id: "",
     };
   },
 
@@ -67,16 +69,22 @@ export default {
     );
     this.list = res.data.data;
     this.aa = res.data.data.teacher;
-    console.log(res);
+    // console.log(res);
 
     var res1 = await this.$axios.get(
       "http://120.53.31.103:84/api/app/recommend/appIndex"
     );
-    console.log(res1);
+    // console.log(res1);
     this.nav = res1.data.data;
+
+    // this._id = this.$route.query._id;
+    // console.log(this._id);
   },
 
-  mounted() {},
+  async mounted() {
+    // let res = await this.$axios.post(this._id);
+    // console.log(res);
+  },
   beforeCreate() {},
   beforeMount() {},
   beforeUpdate() {},

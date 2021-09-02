@@ -21,3 +21,6 @@ export function password(arg) {
 export function signin(arg) {
   return service({ url: require.signin, data: arg, method: "get" });
 }
+export function teacher(arg) {
+  return service({ url: require.teacher, data: arg, method: "get" });
+}

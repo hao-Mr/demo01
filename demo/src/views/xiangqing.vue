@@ -88,8 +88,7 @@ export default {
   data() {
     return {
       active: "",
-      list: [],
-      id: this.$route.query.id,
+      teachers: [],
     };
   },
 
@@ -101,12 +100,9 @@ export default {
 
   async created() {
     var res = await this.$axios.get(
-      "http://120.53.31.103:84/api/app/teacher/" + this.id
+      "http://120.53.31.103:84/api/app/courseInfo"
     );
     this.list = res.data.data;
-    this.aa = res.data.data.teacher;
-    console.log(res);
-    console.log(this.id);
   },
 
   mounted() {},
@@ -213,8 +209,11 @@ export default {
     height: 150px;
     margin-top: 10px;
     background: white;
+    padding: 0 20px;
     .aa {
       margin: 10px 0;
+      width: 100%;
+      height: 500px;
       p {
         margin-top: 10px;
       }
